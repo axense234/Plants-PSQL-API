@@ -22,12 +22,13 @@ app.use(express.json());
 app.use(express.raw());
 
 app.use("/", [plantsRouter]);
-app.use(errorHandlerMiddleware);
-app.use(notFoundMiddleware);
 
 app.get("/", (req: Request, res: Response) => {
   return res.status(200).json({ msg: "Yo" });
 });
+
+app.use(errorHandlerMiddleware);
+app.use(notFoundMiddleware);
 
 const startServer = async () => {
   try {
