@@ -37,7 +37,7 @@ const getPlantByUID = async (req: Request, res: Response) => {
   if (foundPlant.rowCount === 0) {
     return res.status(StatusCodes.NOT_FOUND).json({
       msg: "Could not find the plant you wanted!",
-      plant: foundPlant,
+      plant: {},
     });
   }
 
@@ -51,7 +51,7 @@ const getPlantByUID = async (req: Request, res: Response) => {
 const createPlant = async (req: Request, res: Response) => {
   const plantBody = req.body;
 
-  if (!plantBody) {
+  if (!plantBody.familiar_name) {
     return res
       .status(StatusCodes.BAD_REQUEST)
       .json({ msg: "Please enter plant details!", plant: {} });
@@ -70,8 +70,6 @@ const createPlant = async (req: Request, res: Response) => {
       plantBodyQuery = plantBodyQuery.concat(`${valueType}, `);
     }
   });
-
-  console.log(plantBodyQuery);
 
   // CREATING THE PLANT
   await client.query(`INSERT INTO plant(plant_uid, familiar_name, scientific_name, plant_family, price, stock, discovery_date, primary_color)

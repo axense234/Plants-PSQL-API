@@ -17,6 +17,9 @@ const connectDB = async () => {
   await client.query(
     "CREATE TABLE IF NOT EXISTS plant(plant_uid UUID NOT NULL PRIMARY KEY,familiar_name VARCHAR(100) NOT NULL,scientific_name VARCHAR(100) NOT NULL,plant_family VARCHAR(100) NOT NULL,price MONEY NOT NULL,stock INT NOT NULL,discovery_date DATE NOT NULL,primary_color VARCHAR(50) NOT NULL,UNIQUE(scientific_name))"
   );
+  await client.query(
+    'CREATE EXTENSION IF NOT EXISTS "uuid-ossp"',
+  )
 };
 
 export { client, connectDB };

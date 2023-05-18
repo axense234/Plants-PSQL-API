@@ -11,6 +11,7 @@
   "rules": {
     "arrow-body-style": "off",
     "no-console": "off",
+    "no-unused-expressions":"off",
     "import/no-unresolved": "off",
     "import/extensions": "off",
     "node/no-missing-import": "off",
