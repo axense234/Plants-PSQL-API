@@ -4,39 +4,49 @@ A node express postgresql typescript project made for learning/practicing purpos
 
 ## **Description**
 
-A node express postgresql typescript project made for learning/practicing purposes.Project revolves around plants and has all the basic CRUD operations using the pg client.Also documented with swagger.
+A node express postgresql typescript project made for learning/practicing purposes. Project revolves around plants and has all the basic CRUD operations using the pg client. Also documented with Swagger.
 
 ## **Getting Started**
 
 ### _Dependencies_
 
-- check package.json for dependencies
-- you want also want a postgresql URI to place in .env.sample, either a local or production one
+- Git installed on your machine
+- Docker installed on your machine(optional)
+- A Postgres DB(cloud, local, container)
+- Check package.json for other details
 
 ### _Installing_
 
-- install via **git** by pasting:
+- Clone the repo from Github then run "npm install:
 
 ```
 git clone https://github.com/axense234/Plants-PSQL-API.git
-```
-
-- install **dependencies** from package.json:
-
-```
 cd Plants-PSQL-API
 npm install
 ```
 
-- also rename **.env.sample** to **.env** and place your coresponding environment variables:
-  - **PGURI** = the URI/URL of your postgresql instance
+- also rename **.env.sample** to **.env** and place your own environment variables:
+  - **PGUSER** = the user of your postgres db
+  - **PGPASSWORD** = the password of the user of your postgres db
+  - **PGDATABASE** = the database you want to connect to on your postgres db
+  - **PGHOST** = the host of your postgresdb
+  - **PGPORT** = the port of your postgresdb
+  - **PORT** = the port which your server listens on
+  - **PGURI** = the connection string of your postgres db(made out of other pg env variables)
 
 ### _Executing program_
 
-- run the program using nodemon
+- Test the app using nodemon
 
 ```
 npm run dev
+```
+
+- Test using docker-compose
+
+```
+docker build -t plants-psql-api .
+docker compose up
 ```
 
 ## **Authors**
